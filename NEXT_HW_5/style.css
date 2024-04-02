@@ -1,0 +1,210 @@
+.background {
+    width: 320px;
+    height: 569px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2f4f6;
+    /* border: 1px solid; */
+}
+
+/* box */
+.topbox {
+    height: 14px;
+    width: 280px;
+    padding: 20px;
+}
+
+.firstbox {
+    background-color: #ffffff;
+    border-radius: 16px;
+    height: 20px;
+    width: 256px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 8px;
+}
+
+.secondbox {
+    background-color: #ffffff;
+    border-radius: 16px;
+    height: 227px;
+    width: 256px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    margin-top: 8px;
+}
+
+.thirdbox {
+    background-color: #ffffff;
+    border-radius: 16px;
+    height: 156px;
+    width: 256px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 8px;
+}
+
+.contentbox {
+    width: 256px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.contentbox1 {
+    width: 256px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.contentbox2 {
+    width: 256px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.minibox {
+    width: 142px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.line {
+    width: 256px;
+    height: 1px;
+    background-color: #f2f4f6;
+    margin-top: 20px;
+}
+
+.button {
+    background-color: #f2f4f6;
+    border-radius: 8px;
+    height: 10px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+}
+
+.nav {
+    width: 320px;
+    height: 62px;
+    background-color: #ffffff;
+    top: 517px;
+    position: fixed;
+    z-index: 1;
+    border-radius: 16px 16px 0px 0px;
+    border-top: 1px solid #f2f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navbox {
+    height: 62px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* font */
+.basic {
+    color: #333d4b;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.tossbank {
+    color: #191f28;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.bank {
+    color: #4f5a69;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.btnfont {
+    color: #4f5a69;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.navfont {
+    color: #b0b8c1;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.navfont1 {
+    color: #4f5a69;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* img */
+.bankimg {
+    width: 34px;
+}
+
+.bankimg1 {
+    width: 35px;
+}
+
+.cardimg {
+    width: 36px;
+}
+
+.cardcost {
+    width: 34px;
+    margin-right: 16px;
+}
+
+.logo {
+    width: 80px;
+    padding-right: 110px;
+}
+
+.icon {
+    width: 22px;
+    padding-left: 15px;
+}
+
+.arrow {
+    width: 12px;
+    padding-left: 4px;
+}
+
+.navicon {
+    width: 22px;
+    padding-bottom: 4px;
+}
+
+.navicon1 {
+    width: 18px;
+    padding-bottom: 8px;
+}

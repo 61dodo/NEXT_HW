@@ -1,0 +1,191 @@
+.box {
+    width: 390px;
+    height: 844px;
+    background-color: white;
+}
+
+.gridimg {
+    width: 129px;
+}
+
+.fa-solid {
+    font-size: 24px;
+}
+
+.fa-signal {
+    font-size: 16px;
+}
+
+.fa-user-plus {
+    font-size: 16px;
+}
+
+.battery {
+    width: 28px;
+}
+
+.container51 {
+    width: 130px;
+    height: 55px;
+    border-bottom: 1.5px solid;
+    display: flex;
+    align-items: center;
+    padding-top: 8px;
+    justify-content: center;
+}
+
+.container61 {
+    width: 129px;
+    height: 129px;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container6 {
+    display: flex;
+}
+
+.grid {
+    width: 24px;
+}
+
+.third {
+    width: 28px;
+}
+
+.container52 {
+    width: 130px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    padding-top: 8px;
+    justify-content: center;
+}
+
+.container5 {
+    display: flex;
+}
+
+.sb_l {
+    width: 45px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.video {
+    width: 26px;
+}
+
+.container4 {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.fa-wifi {
+    font-size: 16px;
+}
+
+.statusbar {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+}
+
+.container211 {
+    width: 190px;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.container1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 30px;
+}
+
+img {
+    width: 28px;
+}
+.id {
+    display: flex;
+    align-items: center;
+}
+
+.fa-bell {
+    font-size: 21px;
+    padding-right: 5px;
+}
+
+.fa-ellipsis {
+    font-size: 21px;
+}
+
+.time {
+    font-size: 14px;
+}
+
+.profilepic {
+    width: 100px;
+}
+
+.container2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.container21 {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.fa-link {
+    font-size: 16px;
+    color: darkblue;
+}
+
+.container3 {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 43px;
+    height: 56px;
+    width: 391px;
+    background-color: white;
+    display: flex;
+}
+
+.footer1 {
+    width: 78px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footimg {
+    width: 24px;
+}
