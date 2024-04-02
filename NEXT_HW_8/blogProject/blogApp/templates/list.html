@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>dodo's blog</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'list.css' %}" />
+        <link
+            rel="stylesheet"
+            as="style"
+            crossorigin
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+        />
+    </head>
+    <body>
+        <header class="header">
+            <div class="navbar">
+                <a href="{% url 'new' %}" class="write">글쓰기</a>
+            </div>
+        </header>
+
+        <section id="home" class="home">
+            <img src="{% static 'new.gif' %}" alt="Chungking Express GIF" class="contentimg" />
+            <div class="home-content">
+                <div class="text-content">dodo's <span class="multiple-text"> BLOG</span></div>
+                <div class="content">
+                    <div class="category">
+                        <h2>카테고리</h2>
+                        <ul>
+                            {% for category, count in category_counts.items %}
+                            <li><a href="{% url 'category_view' category %}">{{ category }} ({{ count }})</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="all">
+                        <h2>전체 보기 ({{ total_articles }})</h2>
+                        <ul>
+                            {% for article in articles %}
+                            <li><a href="{% url 'detail' article.id %}">{{ article.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+        <script>
+            var typed = new Typed('.multiple-text', {
+                strings: ['', 'BLOG'],
+                typeSpeed: 100,
+                backSpeed: 100,
+                loop: true,
+            });
+        </script>
+        <script>
+            // 현재 위치를 가져와서 요소들을 고정합니다.
+            const textContent = document.querySelector('.text-content');
+            const category = document.querySelector('.content');
+            const all = document.querySelector('.home-content');
+
+            const textContentPosition = textContent.getBoundingClientRect();
+            const categoryPosition = category.getBoundingClientRect();
+            const allPosition = all.getBoundingClientRect();
+
+            textContent.style.position = 'fixed';
+            textContent.style.top = textContentPosition.top + 'px';
+            textContent.style.left = textContentPosition.left + 'px';
+
+            category.style.position = 'fixed';
+            category.style.top = categoryPosition.top + 'px';
+            category.style.left = categoryPosition.left + 'px';
+
+            all.style.position = 'fixed';
+            all.style.top = allPosition.top + 'px';
+            all.style.right = allPosition.right + 'px';
+        </script>
+    </body>
+</html>

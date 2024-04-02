@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>글쓰기</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'new.css' %}" />
+        <link
+            rel="stylesheet"
+            as="style"
+            crossorigin
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+        />
+    </head>
+    <body>
+        <h1>글쓰기</h1>
+        <form action="/new" method="post">
+            {% csrf_token %}
+            <div class="container">
+                <div>
+                    <select name="category">
+                        {% for category in categories %}
+                        <option value="{{ category }}">{{ category }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        name="title"
+                        size="83"
+                        placeholder="⬅️ 카테고리 선택하고 여기서는 제목 입력하면 됨!"
+                    />
+                </div>
+            </div>
+            <div>
+                <textarea name="content" cols="100" rows="20" placeholder="본문 작성하면 됨!"></textarea>
+            </div>
+            <button type="submit">발행</button>
+        </form>
+        <button class="back-button" onclick="goBack()">취소</button>
+
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+    </body>
+</html>

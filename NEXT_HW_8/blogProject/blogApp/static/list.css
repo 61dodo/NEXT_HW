@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white; /* 텍스트 색상을 흰색으로 설정 */
+}
+
+header {
+    position: relative;
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 30px;
+}
+
+.navbar {
+    display: inline-block;
+}
+
+.home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.home-content {
+    max-width: 800px; /* 최대 너비를 설정합니다. */
+    margin: 0 auto; /* 가운데 정렬을 합니다. */
+    padding: 0 20px; /* 좌우 여백을 추가합니다. */
+}
+
+.category {
+    float: left; /* 왼쪽으로 배치합니다. */
+    width: 50%; /* 너비를 50%로 설정합니다. */
+    box-sizing: border-box; /* 여백과 패딩을 포함한 요소의 크기를 설정합니다. */
+    padding-right: 20px; /* 오른쪽 여백을 추가합니다. */
+}
+
+.all {
+    float: left; /* 왼쪽으로 배치합니다. */
+    width: 50%; /* 너비를 50%로 설정합니다. */
+    box-sizing: border-box; /* 여백과 패딩을 포함한 요소의 크기를 설정합니다. */
+    padding-left: 20px; /* 왼쪽 여백을 추가합니다. */
+}
+
+.content {
+    margin-top: 25px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li:before {
+    content: '|';
+    margin-right: 5px;
+    color: #fffe36;
+}
+
+.all ul {
+    display: flex; /* 하위 요소들을 가로로 정렬합니다. */
+    flex-direction: column; /* 요소들을 세로로 배치합니다. */
+}
+
+.all ul li {
+    flex: 0 0 100%; /* 요소들을 가로로 100%로 설정하여 한 줄에 하나씩 표시합니다. */
+    box-sizing: border-box;
+    white-space: nowrap; /* 텍스트가 길어지더라도 줄 바꿈을 하지 않도록 설정합니다. */
+    overflow: hidden; /* 넘치는 텍스트를 숨김 처리합니다. */
+    text-overflow: ellipsis; /* 넘치는 텍스트를 생략 부호(...)로 표시합니다. */
+}
+
+.contentimg {
+    width: 700px;
+    transform: scaleX(-1);
+}
+
+/* font */
+* {
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+        'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+    text-decoration: none;
+    color: white;
+}
+
+.navbar a {
+    background-color: #fffe36;
+    color: black;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    background-color: #ffffe3;
+    color: black;
+}
+
+.text-content {
+    font-size: 75px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fffe36;
+}
+
+.multiple-text {
+    color: white;
+}
+
+h2 {
+    color: #fffe36;
+}
