@@ -1,0 +1,85 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.navbar {
+    width: 1100px;
+    height: 50px;
+    display: inline-flex;
+    margin-bottom: 50px;
+}
+
+.centerbox {
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 100px;
+}
+
+.sidebox {
+    width: 300px;
+    height: 50px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divider {
+    width: 40px;
+    height: 60px;
+    border-bottom: 2px black solid;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-gallery {
+    display: flex; /* Flexbox 사용하여 사진들을 가로로 배열 */
+    justify-content: center; /* 가로 방향 가운데 정렬 */
+    margin-bottom: 100px;
+}
+
+.image-gallery1 {
+    display: flex; /* Flexbox 사용하여 사진들을 가로로 배열 */
+    justify-content: center; /* 가로 방향 가운데 정렬 */
+    margin-bottom: 100px;
+}
+
+.image-gallery img {
+    width: auto; /* 이미지의 너비를 자동으로 조정하여 비율 유지 */
+    height: 500px; /* 이미지의 높이를 고정 */
+    margin: 0 5px; /* 각 사진 사이의 간격 설정 */
+}
+
+.image-gallery1 img {
+    width: auto; /* 이미지의 너비를 자동으로 조정하여 비율 유지 */
+    height: 270px; /* 이미지의 높이를 고정 */
+    margin: 0 15px; /* 각 사진 사이의 간격 설정 */
+}
+
+/* font */
+* {
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+        'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+    font-size: 20px;
+}
+
+.myname {
+    font-weight: 900;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black; /* 기본 메뉴 색상 */
+}
+
+.navbar a.active {
+    color: blue; /* 해당 페이지에 있는 메뉴 색상 */
+}

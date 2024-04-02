@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>myportfolio_contact</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'contact.css' %}" />
+        <link
+            rel="stylesheet"
+            as="style"
+            crossorigin
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+        />
+    </head>
+    <body>
+      <div class="container">
+        <div class="navbar">
+            <div class="sidebox">
+                <a href="{% url 'info' %}" class="{% if request.path == '/info' %}active{% endif %}">INFO</a>
+                <a href="{% url 'project' %}" class="{% if request.path == '/project' %}active{% endif %}"
+                    >PROJECT</a
+                >
+            </div>
+            <div class="centerbox">
+                <p class="myname">DOGYEONG MOON</p>
+            </div>
+            <div class="sidebox">
+                <p>TMI</p>
+                <a href="{% url 'contact' %}" class="{% if request.path == '/contact' %}active{% endif %}">CONTACT</a>
+            </div>
+        </div>
+        <div class="contents">
+          <p><b>PHONE </b> 010-2182-1254</p>
+          <p><b>EMAIL </b> veritas628729@gmail.com</p>
+        </div>
+        <div class="contents1">
+          <a href="{% url 'instagram' %}" class="button">INSTAGRAM</a>
+          <a href="{% url 'github' %}" class="button">GITHUB</a>
+          <a href="{% url 'blog' %}" class="button">BLOG</a>
+        </div>
+    </body>
+</html>
