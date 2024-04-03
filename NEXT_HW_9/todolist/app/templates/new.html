@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ADD to-do</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'new.css' %}" />
+        <link
+            rel="stylesheet"
+            as="style"
+            crossorigin
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+        />
+    </head>
+    <body>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h2>ADD to-do</h2>
+            <div>
+                <label for="title">할 일</label>
+                <input type="text" name="title" id="title" placeholder="할 일을 입력해 주세요! 파이팅:)" />
+            </div>
+            <div>
+                <label for="deadline">마감일</label>
+                <input type="datetime-local" name="deadline" id="deadline" />
+            </div>
+            <div>
+                <label for="content">세부사항</label>
+                <textarea
+                    name="content"
+                    id="content"
+                    cols="90"
+                    rows="20"
+                    placeholder="세부사항을 입력해 주세요! 아자아자~"
+                ></textarea>
+            </div>
+            <div class="btnset">
+                <button type="button" class="btnback" onclick="goBack()">취소</button>
+                <button type="button" id="submitButton" class="btnsubmit">완료</button>
+            </div>
+        </form>
+
+        <script>
+            document.getElementById('submitButton').addEventListener('click', function () {
+                // 필수 입력 필드인 '마감일'에 값이 비어 있는지 확인
+                var deadlineInput = document.getElementById('deadline').value;
+                if (deadlineInput.trim() === '') {
+                    // 값이 비어 있다면 경고 메시지 표시
+                    alert('마감일을 입력해 주세요.');
+                } else {
+                    // 값이 비어 있지 않다면 폼 제출
+                    document.querySelector('form').submit();
+                }
+            });
+        </script>
+    </body>
+</html>

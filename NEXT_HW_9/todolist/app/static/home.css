@@ -1,0 +1,96 @@
+* {
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+        'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+    text-decoration: none;
+    color: #484540;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('back1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #484540;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todobox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btnadd a {
+    display: inline-block;
+    padding: 12px 16px;
+    background-color: #484540;
+    color: #fef9f5;
+    border-radius: 20px;
+    margin-bottom: 75px;
+    font-size: 20px;
+}
+
+.btnadd a:hover {
+    background-color: #aad59f;
+}
+
+.ddaybox {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #f6c3ae;
+    border-radius: 16px;
+    margin-bottom: 15px;
+    margin-right: 5px;
+}
+
+.todaybox {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #f0743e;
+    border-radius: 16px;
+    margin-bottom: 15px;
+    margin-right: 5px;
+}
+
+.twodigits {
+    background-color: #9ab2d4;
+}
+
+.passedbox {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #cdbcdc;
+    border-radius: 16px;
+    margin-bottom: 15px;
+    margin-right: 5px;
+}
+
+span {
+    color: #fef9f5;
+}
+
+.title {
+    font-size: 24px;
+}
+
+.content {
+    font-size: 12px;
+    margin-left: 15px;
+    color: #c3c2c2;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style-type: none;
+}

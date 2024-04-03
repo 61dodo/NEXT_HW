@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>EDIT <{{ post.title }}></title>
+        <link rel="stylesheet" type="text/css" href="{% static 'update.css' %}" />
+        <link
+            rel="stylesheet"
+            as="style"
+            crossorigin
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+        />
+    </head>
+    <body>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h2>EDIT</h2>
+            <div>
+                <label for="title">할 일</label>
+                <input type="text" name="title" id="title" value="{{ post.title }}" />
+            </div>
+            <div>
+                <label for="deadline">마감일</label>
+                <input
+                    type="datetime-local"
+                    name="deadline"
+                    id="deadline"
+                    value="{% if post.deadline %}{{ post.deadline|date:'Y-m-d\TH:i' }}{% endif %}"
+                />
+            </div>
+            <div>
+                <label for="content">세부사항</label>
+                <textarea name="content" id="content" cols="90" rows="20">{{ post.content }}</textarea>
+            </div>
+            <div class="btnset">
+                <a href="javascript:history.go(-1)" class="btnback">취소</a>
+                <button type="submit" class="btnsubmit">완료</button>
+            </div>
+        </form>
+    </body>
+</html>

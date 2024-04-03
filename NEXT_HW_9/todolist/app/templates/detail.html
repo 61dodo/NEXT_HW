@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ post.title }}</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}" />
+        <link
+            rel="stylesheet"
+            as="style"
+            crossorigin
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+        />
+    </head>
+    <body>
+        <div>
+            <h1>{{ post.title }}</h1>
+        </div>
+        <div>
+            <span>마감일 | {{ post.deadline }}</span>
+        </div>
+        <div class="contentbox">{{ post.content }}</div>
+        <div class="btnset">
+            <div class="btnhome">
+                <a href="{% url 'home' %}">HOME</a>
+            </div>
+            <div class="btnupdate">
+                <a href="{% url 'update' post.pk %}">EDIT</a>
+            </div>
+            <div class="btndelete">
+                <a href="{% url 'delete' post.pk %}">DELETE</a>
+            </div>
+        </div>
+    </body>
+</html>
