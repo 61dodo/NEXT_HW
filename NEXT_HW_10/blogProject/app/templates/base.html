@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            as="style"
+            crossorigin
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
+        />
+        <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}" />
+        {% block css %} {% endblock css %}
+        <title>{% block title %}Your Website Title{% endblock %}</title>
+    </head>
+    <body>
+        <div class="gang">{% block gang %} {% endblock gang %}</div>
+        <div class="footer"><p>fleeting moments of love accumulates and forms eternity @}-`-,-----</p></div>
+    </body>
+</html>

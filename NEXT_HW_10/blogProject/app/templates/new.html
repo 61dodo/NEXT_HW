@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block css %} {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'new.css' %}" />
+{% endblock %} {% block title %}글쓰기{% endblock %} {% block gang %}
+<div class="container1">
+    <h1>글쓰기</h1>
+    <form action="/new" method="post">
+        {% csrf_token %}
+        <div class="container">
+            <div>
+                <select name="category">
+                    {% for category in categories %}
+                    <option value="{{ category }}">{{ category }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <input
+                    type="text"
+                    name="title"
+                    size="83"
+                    placeholder="⬅️ 카테고리 선택하고 여기서는 제목 입력하면 됨!"
+                />
+            </div>
+        </div>
+        <div>
+            <textarea name="content" cols="100" rows="20" placeholder="본문 작성하면 됨!"></textarea>
+        </div>
+        <button type="submit">발행</button>
+    </form>
+    <button class="back-button" onclick="goBack()">취소</button>
+</div>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+{% endblock %}

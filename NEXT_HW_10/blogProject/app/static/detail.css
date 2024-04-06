@@ -1,0 +1,150 @@
+body {
+    background-image: url('back.jpg');
+    background-size: cover; /* 배경 이미지를 화면에 맞게 크기 조절합니다. */
+    background-position: center; /* 배경 이미지를 가운데 정렬합니다. */
+    background-repeat: repeat-y; /* 세로 방향으로 반복 */
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 60px;
+}
+
+.box {
+    width: 700px;
+    height: 350px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 24px;
+    border: 5px #fffe36 groove;
+    display: flex;
+    padding: 20px 40px;
+}
+
+.set {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.commentbox {
+    width: 670px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+    border: 1px #ffffff dotted;
+    display: flex;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
+.commentbox1 {
+    width: 550px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    border: 1px #ffffff dotted;
+    display: flex;
+    padding: 10px 20px;
+}
+
+.commentbox2 {
+    width: 670px;
+    height: 20px;
+    display: inline-block;
+}
+
+.btnsubmit {
+    display: inline-block;
+    padding: 12px 16px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border-radius: 12px;
+    border: 1px white dotted;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.btnsubmit1 {
+    display: inline-block;
+    padding: 12px 16px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border-radius: 12px;
+    border: 1px white dotted;
+    margin-left: 10px;
+}
+
+.btnsubmit:hover,
+.btnsubmit1:hover {
+    background-color: #fffe3699;
+    color: #000000;
+}
+
+.btndelete {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    border-radius: 12px;
+    border: none;
+    font-size: 12px;
+}
+
+.btndelete:hover,
+.btn-reply:hover {
+    border: 1px white dotted;
+}
+
+.btn-reply {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffff36;
+    border-radius: 12px;
+    border: none;
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+* {
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+        'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+    color: white;
+    text-decoration: none;
+}
+
+h1 {
+    color: #fffe36;
+    margin-top: 100px;
+    margin-bottom: -5px;
+}
+
+h5 {
+    color: #fffe36;
+    font-weight: 200;
+    margin-bottom: 30px;
+}
+
+.logo {
+    position: fixed; /* 고정 위치 설정 */
+    top: 25px; /* 위쪽 여백 설정 */
+    left: 25px; /* 왼쪽 여백 설정 */
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.reply {
+    color: #fffe3699;
+}

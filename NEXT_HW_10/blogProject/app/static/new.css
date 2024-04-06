@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 60px;
+}
+
+body {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+.container {
+    display: flex; /* 카테고리와 제목을 수평으로 정렬하기 위해 flex 사용 */
+    justify-content: space-between;
+    align-items: center; /* 카테고리와 제목을 수직 중앙으로 정렬 */
+}
+
+form {
+    margin-top: 20px; /* 글쓰기와 폼 사이의 간격 설정 */
+    text-align: center; /* 내부 요소 가운데 정렬 */
+}
+
+h1 {
+    margin-bottom: 20px; /* 글쓰기와 폼 사이의 간격 설정 */
+    color: #fffe36;
+}
+
+select[name='category'] {
+    height: 40px; /* 취미 선택 드롭다운의 너비를 더 크게 조정 */
+    margin-bottom: 30px;
+}
+
+input[name='title'] {
+    height: 40px; /* 제목 입력 칸의 높이를 늘림 */
+    margin-bottom: 30px;
+}
+
+button[type='submit'] {
+    width: 200px;
+    height: 50px;
+    margin-top: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #fffe36;
+}
+
+.back-button {
+    width: 200px;
+    height: 50px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+* {
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+        'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji',
+        'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+}

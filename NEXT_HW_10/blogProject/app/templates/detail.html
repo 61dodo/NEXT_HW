@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% block css %} {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}" />
+{% endblock %} {% block title %}{{ article.title }}{% endblock %} {% block gang %} {% load tz %}
+<a href="{% url 'list' %}" class="logo">dodo's BLOG</a>
+<div class="container">
+    <h1>{{ article.title }}</h1>
+    <h5>{{ article.created_at|timezone:"Asia/Seoul" }}</h5>
+    <div class="box">
+        <p>{{ article.content }}</p>
+    </div>
+    <div class="set">
+        <form method="POST" style="display: flex; align-items: center">
+            {% csrf_token %}
+            <input type="text" name="content" placeholder="댓글을 입력해 주세요" class="commentbox" />
+            <button type="submit" class="btnsubmit">등록</button>
+        </form>
+    </div>
+    <div class="commentbox2">
+        {% for comment in article.comments.all %}
+        <p>
+            {{ comment.content }}
+            <button class="btn-reply">답글</button>
+            <a href="{% url 'delete-comment' article.pk comment.pk %}" class="btndelete">삭제</a>
+        </p>
+        <!-- 답글 입력창 -->
+        <div class="reply-form" style="display: none">
+            <form method="POST" style="display: flex; align-items: center">
+                {% csrf_token %}
+                <input type="hidden" name="comment_id" value="{{ comment.id }}" />
+                <!-- 댓글의 ID 전송 -->
+                <input type="text" name="reply_content" placeholder="답글을 입력해 주세요" class="commentbox1" />
+                <button type="submit" class="btnsubmit1">등록</button>
+            </form>
+        </div>
+
+        {% for reply in comment.replies.all %}
+        <p class="reply">ㄴ {{ reply.content }}</p>
+        {% endfor %}
+        <!-- /답글 목록 -->
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    // JavaScript를 사용하여 답글 입력창을 토글합니다.
+    const replyForms = document.querySelectorAll('.reply-form');
+    const replyButtons = document.querySelectorAll('.btn-reply');
+
+    replyButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            if (replyForms[index].style.display === 'none' || replyForms[index].style.display === '') {
+                replyForms.forEach((form) => (form.style.display = 'none'));
+                replyForms[index].style.display = 'block';
+            } else {
+                replyForms[index].style.display = 'none';
+            }
+        });
+    });
+</script>
+{% endblock %}

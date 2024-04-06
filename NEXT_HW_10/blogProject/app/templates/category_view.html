@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block css %} {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'category_view.css' %}" />
+{% endblock %} {% block title %}dodo's {{ category }}{% endblock %} {% block gang %}
+<div class="container1">
+    <h2>[ {{ category }} ]</h2>
+    <h4>{{ total_articles }}개의 글</h4>
+    <div class="container">
+        <ul>
+            {% for article in articles %}
+            <li>
+                <h3><a href="{% url 'detail' article.id %}">{{ article.title }}</a></h3>
+            </li>
+            {% empty %}
+            <li>해당 카테고리에 글이 없습니다.</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <button class="back-button" onclick="goBack()">HOME</button>
+</div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+{% endblock %}
