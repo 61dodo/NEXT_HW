@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load account socialaccount %} {% providers_media_js %}
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>login</title>
+    </head>
+    <body>
+        <h1>! LOGIN !</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="id_username">Username:</label>
+                <input type="text" name="username" id="id_username" />
+            </div>
+            <div>
+                <label for="id_password">Password:</label>
+                <input type="password" name="password" id="id_password" />
+            </div>
+            <button type="submit">login</button>
+        </form>
+        <form method="POST" action="{% provider_login_url 'kakao' %}">
+            {% csrf_token %} {{ form.as_p }} {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <button class="primaryAction" type="submit">Continue with kakao</button>
+        </form>
+        <form method="POST" action="{% provider_login_url 'google' %}">
+            {% csrf_token %} {{ form.as_p }} {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <button class="primaryAction" type="submit">Continue with google</button>
+        </form>
+    </body>
+</html>

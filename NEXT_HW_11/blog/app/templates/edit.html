@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>edit</title>
+    </head>
+    <body>
+        <h1>edit</h1>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <input type="text" value="{{post.title}}" name="title" placeholder="제목" />
+            <textarea name="content" placeholder="내용">{{post.content}}</textarea>
+            <input id="edit-post_btn" type="submit" value="완료" />
+        </form>
+    </body>
+</html>

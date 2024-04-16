@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load account socialaccount %} {% providers_media_js %}
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>home</title>
+    </head>
+    <body>
+        {% if user.is_authenticated %}
+        <span>{{user.username}} 등장!</span>
+        <a href="{% url 'logout'%}">LOGOUT</a>
+        {% else %}
+        <a href="{% url 'login'%}">LOGIN</a>
+        <form method="POST" action="{% provider_login_url 'kakao' %}">
+            {% csrf_token %} {{ form.as_p }} {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <button class="primaryAction" type="submit">Continue with kakao</button>
+        </form>
+        <form method="POST" action="{% provider_login_url 'google' %}">
+            {% csrf_token %} {{ form.as_p }} {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <button class="primaryAction" type="submit">Continue with google</button>
+        </form>
+        <a href="{% url 'signup'%}">SIGN UP</a>
+        {% endif %}
+        <h2>POST</h2>
+        {% for post in posts %}
+        <a href="{% url 'detail' post.pk %}">
+            <li>
+                <span>{{post.title}}</span>
+            </li>
+        </a>
+        {% endfor %}
+        <a id="post-button" href="{% url 'new' %}">글쓰기</a>
+    </body>
+</html>

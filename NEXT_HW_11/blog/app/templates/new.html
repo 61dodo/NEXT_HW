@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>new</title>
+    </head>
+    <body>
+        <h1>new</h1>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <input type="text" placeholder="title" name="title" />
+            <textarea placeholder="content" name="content"></textarea>
+            <input id="new-post_btn" type="submit" value="upload" />
+        </form>
+    </body>
+</html>
