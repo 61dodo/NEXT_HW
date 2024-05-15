@@ -1,0 +1,124 @@
+{% extends 'base.html' %} {% block title %} Detail!{% endblock %} {% block css%} {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}" />
+{% endblock %} {% block content %}
+<div class="detail-post_container">
+    <div class="detail_title">제목: {{post.title}}</div>
+    <div class="detail_content">내용: {{post.content}}</div>
+    <div class="detail_content">작성자: {{post.author.username}}</div>
+    <div class="detail-post_btn">
+        <a href="{% url 'home' %}">홈 화면</a>
+        {% if user.is_authenticated and user.pk == post.author.pk %}
+        <a href="{% url 'edit' post.pk %}">수정하기</a>
+        <a href="{% url 'delete' post.pk %}">삭제하기</a>{% endif %}
+        <span class="like-count">좋아요 수 {{ post.likes.count }}</span>
+    </div>
+    <form id="comment-form" action="{% url 'add_comment' post.pk %}" method="POST">
+        <!-- 수정된 부분 -->
+        {% csrf_token %}
+        <input type="text" id="comment-input" name="content" />
+        <button type="submit">댓글 작성</button>
+    </form>
+    <button class="like-button">좋아요</button>
+    <ul id="comment-list">
+        {% for comment in post.comments.all %}
+        <li data-comment-id="{{ comment.pk }}">
+            <span>{{ comment.content }}</span>
+            <span>{{ comment.author.username }}</span>
+            {% if user.pk == comment.author.pk and user.is_authenticated %}
+            <a href="#" class="delete-comment" data-comment-id="{{ comment.pk }}">삭제</a>
+            <!-- 수정된 부분 -->
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    const likeButton = document.querySelector('.like-button');
+    const likeCount = document.querySelector('.like-count');
+    const commentForm = document.getElementById('comment-form');
+    const commentList = document.getElementById('comment-list');
+
+    const handleLike = async () => {
+        try {
+            const res = await axios.post('/like', { post_pk: '{{ post.pk }}' });
+            likeCount.innerHTML = '좋아요 수 ' + res.data.like_count;
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    const handleCommentSubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData(commentForm);
+        try {
+            const res = await axios.post(commentForm.action, formData);
+            const newComment = res.data;
+            const commentItem = document.createElement('li');
+            commentItem.setAttribute('data-comment-id', newComment.pk);
+            commentItem.innerHTML = `
+              <span>${newComment.content}</span>
+              <span>${newComment.author}</span>
+              <a href="#" class="delete-comment" data-comment-id="${newComment.pk}">삭제</a>
+          `;
+            commentList.appendChild(commentItem);
+            commentForm.reset();
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    const handleCommentDelete = async (event) => {
+        event.preventDefault();
+        const commentId = event.target.getAttribute('data-comment-id');
+        const csrftoken = getCookie('csrftoken'); // CSRF 토큰 가져오기
+        try {
+            const res = await axios.post(
+                `/delete-comment/{{ post.pk }}/${commentId}`,
+                {},
+                {
+                    headers: {
+                        'X-CSRFToken': csrftoken, // 요청 헤더에 CSRF 토큰 추가
+                    },
+                }
+            );
+            if (res.data.success) {
+                const commentItem = document.querySelector(`li[data-comment-id="${commentId}"]`);
+                commentItem.remove();
+            } else {
+                console.error('Failed to delete comment:', res.data.error);
+            }
+        } catch (err) {
+            console.error('Failed to delete comment:', err);
+        }
+    };
+
+    // CSRF 토큰을 쿠키에서 가져오는 함수
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // 쿠키 이름이 일치하는 경우
+                if (cookie.substring(0, name.length + 1) === name + '=') {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    commentForm.addEventListener('submit', handleCommentSubmit);
+    commentList.addEventListener('click', (event) => {
+        if (event.target.classList.contains('delete-comment')) {
+            handleCommentDelete(event);
+        }
+    });
+
+    likeButton.addEventListener('click', handleLike);
+</script>
+
+{% endblock %}
